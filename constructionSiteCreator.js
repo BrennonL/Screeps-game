@@ -7,44 +7,48 @@ let constructionSiteCreator = {
         if(game.time === 0){
             setTheTime();
         }
-        let roadThreshold = 300;
+        let roadThreshold = 100;
+        let resetTime = 2400;
         for (let x in game.creeps) {
-            let theRoomName = game.creeps[x].pos.roomName;
-            let xcor = game.creeps[x].pos.x;
-            let ycor = game.creeps[x].pos.y;
-            //roadThreshold = Object.keys(game.creeps).length**3; // <-- determine threshold based off of
-            if(!memory.sites){
-                memory.sites = {}
-            }
-            if(!memory.sites[theRoomName]){
-                memory.sites[theRoomName] = {}
-            }
-            if(!memory.sites[theRoomName][xcor]){
-                memory.sites[theRoomName][xcor] = {}
-            }
-            if(!memory.sites[theRoomName][xcor][ycor]){
-                memory.sites[theRoomName][xcor][ycor] = 0;
-            }
-            if (!(memory.sites[theRoomName][xcor][ycor] === undefined)) {
+            debugger;
+            if (!game.creeps[x].memory.building) {
+                let theRoomName = game.creeps[x].pos.roomName;
+                let xcor = game.creeps[x].pos.x;
+                let ycor = game.creeps[x].pos.y;
+                //roadThreshold = Object.keys(game.creeps).length**3; // <-- determine threshold based off of
+                if (!memory.sites) {
+                    memory.sites = {}
+                }
+                if (!memory.sites[theRoomName]) {
+                    memory.sites[theRoomName] = {}
+                }
+                if (!memory.sites[theRoomName][xcor]) {
+                    memory.sites[theRoomName][xcor] = {}
+                }
+                if (!memory.sites[theRoomName][xcor][ycor]) {
+                    memory.sites[theRoomName][xcor][ycor] = 0;
+                }
+                if (!(memory.sites[theRoomName][xcor][ycor] === undefined)) {
 
-                memory.sites[theRoomName][xcor][ycor]++;
+                    memory.sites[theRoomName][xcor][ycor]++;
 
-                if (memory.sites[theRoomName][xcor][ycor] > roadThreshold) {
+                    if (memory.sites[theRoomName][xcor][ycor] > roadThreshold) {
 
-                    game.rooms[theRoomName].createConstructionSite(xcor, ycor, STRUCTURE_ROAD);
+                        game.rooms[theRoomName].createConstructionSite(xcor, ycor, STRUCTURE_ROAD);
 
+                    }
                 }
             }
         }
 
-        if(Game.time - memory.time >= 600) {
+        if(Game.time - memory.time >= resetTime) {
             for(let roomCodes in memory.sites){
+                console.log("<span style='color:rgb(255,114,36)'>Clearing room" + roomCodes + "</span>")
                 for(let x in memory.sites[roomCodes]){
                     for(let y in memory.sites[roomCodes][x]){
                         debugger;
                         if(memory.sites[roomCodes][x][y] < roadThreshold){
                             memory.sites[roomCodes][x][y] = null;
-                            console.log("<span style='color:rgb(255,114,36)'>Clearing room" + roomCodes + ", " + x + ", " + y + "</span>")
                             delete memory.sites[roomCodes][x][y];
                         }
                     }
