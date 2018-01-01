@@ -2,7 +2,8 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleHarvestBuilder = require('role.harvestBuilder');
-var roleRepair = require('role.repair')
+var roleRepair = require('role.repair');
+var constructionSiteCreator = require('constructionSiteCreator');
 module.exports.loop = function () {
 
     for(var name in Memory.creeps) {
@@ -89,4 +90,5 @@ module.exports.loop = function () {
             roleRepair.run(creep);
         }
     }
+    constructionSiteCreator.construct(Game, Memory);
 }
