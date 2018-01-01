@@ -7,7 +7,7 @@ let constructionSiteCreator = {
         if(game.time === 0){
             setTheTime();
         }
-        let roadThreshold = 35;
+        let roadThreshold = 300;
         for (let x in game.creeps) {
             let theRoomName = game.creeps[x].pos.roomName;
             let xcor = game.creeps[x].pos.x;
@@ -44,6 +44,7 @@ let constructionSiteCreator = {
                         debugger;
                         if(memory.sites[roomCodes][x][y] < roadThreshold){
                             memory.sites[roomCodes][x][y] = null;
+                            console.log("<span style='color:rgb(255,114,36)'>Clearing room" + roomCodes + ", " + x + ", " + y + "</span>")
                             delete memory.sites[roomCodes][x][y];
                         }
                     }

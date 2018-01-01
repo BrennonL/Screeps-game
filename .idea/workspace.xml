@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d1d0-d9a3-415f-9e71-e986869da241" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/constructionSiteCreator.js" afterPath="$PROJECT_DIR$/constructionSiteCreator.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -50,9 +49,11 @@
       <file leaf-file-name="constructionSiteCreator.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/constructionSiteCreator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="243">
+              <caret line="46" column="74" lean-forward="false" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="74" />
+              <folding>
+                <marker date="1514824309682" expanded="true" signature="1768:1789" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,6 +164,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -198,12 +200,12 @@
       <workItem from="1513983164824" duration="1414000" />
       <workItem from="1514048403274" duration="1519000" />
       <workItem from="1514774241192" duration="3932000" />
-      <workItem from="1514823559456" duration="134000" />
+      <workItem from="1514823559456" duration="812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39874000" />
+    <option name="totallyTimeSpent" value="40552000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -640,9 +642,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/constructionSiteCreator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-          <folding />
+        <state relative-caret-position="243">
+          <caret line="46" column="74" lean-forward="false" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="74" />
+          <folding>
+            <marker date="1514824309682" expanded="true" signature="1768:1789" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
