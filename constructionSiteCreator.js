@@ -1,11 +1,18 @@
 let constructionSiteCreator = {
     construct: function(game, memory) {
+
+        let setTheTime = function() {
+            memory.time = Game.time;
+        }
+        if(game.time === 0){
+            setTheTime();
+        }
+        let roadThreshold = 35;
         for (let x in game.creeps) {
-            debugger;
             let theRoomName = game.creeps[x].pos.roomName;
             let xcor = game.creeps[x].pos.x;
             let ycor = game.creeps[x].pos.y;
-            let roadThreshold = 200; //Object.keys(game.creeps).length**3; // <-- determine threshold based off of
+            //roadThreshold = Object.keys(game.creeps).length**3; // <-- determine threshold based off of
             if(!memory.sites){
                 memory.sites = {}
             }
@@ -18,7 +25,6 @@ let constructionSiteCreator = {
             if(!memory.sites[theRoomName][xcor][ycor]){
                 memory.sites[theRoomName][xcor][ycor] = 0;
             }
-            debugger;
             if (!(memory.sites[theRoomName][xcor][ycor] === undefined)) {
 
                 memory.sites[theRoomName][xcor][ycor]++;
@@ -29,6 +35,27 @@ let constructionSiteCreator = {
 
                 }
             }
+        }
+
+        if(Game.time - memory.time >= 600) {
+            for(let roomCodes in memory.sites){
+                for(let x in memory.sites[roomCodes]){
+                    for(let y in memory.sites[roomCodes][x]){
+                        debugger;
+                        if(memory.sites[roomCodes][x][y] < roadThreshold){
+                            memory.sites[roomCodes][x][y] = null;
+                            delete memory.sites[roomCodes][x][y];
+                        }
+                    }
+                    if(Object.keys(memory.sites[roomCodes][x]).length === 0){
+                        delete memory.sites[roomCodes][x];
+                    }
+                }
+                if(Object.keys(memory.sites[roomCodes]).length === 0){
+                    delete memory.sites[roomCodes];
+                }
+            }
+            setTheTime();
         }
     }
 };
