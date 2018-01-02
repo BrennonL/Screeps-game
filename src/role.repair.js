@@ -4,8 +4,10 @@ var roleRepair = {
     /** @param {Creep} creep **/
     run: function(creep) {
         // let averageWallHealth = creep.pos.find()
-        var target = creep.pos.findClosestByPath(FIND_STRUCTURES, { filter: (s) => s.structureType == STRUCTURE_ROAD && s.hits < s.hitsMax - 1000});
-        if(target) {
+        var target = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            filter: (s) => s.structureType == STRUCTURE_ROAD && s.hits < s.hitsMax - 1000
+        });
+        if (target) {
             if (creep.memory.building && creep.carry.energy == 0) {
                 creep.memory.building = false;
                 creep.say('🔄 harvest');
@@ -19,11 +21,14 @@ var roleRepair = {
                 if (creep.repair(target) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target);
                 }
-            }
-            else {
+            } else {
                 var sources = creep.room.find(FIND_SOURCES);
                 if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+                    creep.moveTo(sources[0], {
+                        visualizePathStyle: {
+                            stroke: '#ffaa00'
+                        }
+                    });
                 }
             }
         } else {

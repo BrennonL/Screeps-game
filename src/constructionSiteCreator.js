@@ -4,7 +4,7 @@ let constructionSiteCreator = {
         let setTheTime = function() {
             memory.time = Game.time;
         }
-        if(game.time === 0){
+        if (game.time === 0) {
             setTheTime();
         }
         let roadThreshold = 100;
@@ -41,22 +41,22 @@ let constructionSiteCreator = {
             }
         }
 
-        if(Game.time - memory.time >= resetTime) {
-            for(let roomCodes in memory.sites){
+        if (Game.time - memory.time >= resetTime) {
+            for (let roomCodes in memory.sites) {
                 console.log("<span style='color:rgb(255,114,36)'>Clearing room" + roomCodes + "</span>")
-                for(let x in memory.sites[roomCodes]){
-                    for(let y in memory.sites[roomCodes][x]){
+                for (let x in memory.sites[roomCodes]) {
+                    for (let y in memory.sites[roomCodes][x]) {
                         debugger;
-                        if(memory.sites[roomCodes][x][y] < roadThreshold){
+                        if (memory.sites[roomCodes][x][y] < roadThreshold) {
                             memory.sites[roomCodes][x][y] = null;
                             delete memory.sites[roomCodes][x][y];
                         }
                     }
-                    if(Object.keys(memory.sites[roomCodes][x]).length === 0){
+                    if (Object.keys(memory.sites[roomCodes][x]).length === 0) {
                         delete memory.sites[roomCodes][x];
                     }
                 }
-                if(Object.keys(memory.sites[roomCodes]).length === 0){
+                if (Object.keys(memory.sites[roomCodes]).length === 0) {
                     delete memory.sites[roomCodes];
                 }
             }
